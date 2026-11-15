@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Online Shopping - Vanilla JS</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🛒 Online Shopping Store</h1>
+            <p class="subtitle">Vanilla JavaScript Implementation (CO1 & CO2)</p>
+        </header>
+
+        <section class="product-form-section">
+            <h2>Add New Product</h2>
+            <form id="productForm" class="product-form">
+                <div class="form-group">
+                    <label for="productName">Product Name *</label>
+                    <input type="text" id="productName" name="productName" required placeholder="Enter product name">
+                    <span class="error-message" id="nameError"></span>
+                </div>
+                <div class="form-group">
+                    <label for="productPrice">Price ($) *</label>
+                    <input type="number" id="productPrice" name="productPrice" required min="0.01" step="0.01" placeholder="Enter price">
+                    <span class="error-message" id="priceError"></span>
+                </div>
+                <div class="form-group">
+                    <label for="productCategory">Category *</label>
+                    <select id="productCategory" name="productCategory" required>
+                        <option value="">Select category</option>
+                        <option value="electronics">Electronics</option>
+                        <option value="clothing">Clothing</option>
+                        <option value="books">Books</option>
+                        <option value="home">Home & Garden</option>
+                        <option value="sports">Sports</option>
+                    </select>
+                    <span class="error-message" id="categoryError"></span>
+                </div>
+                <div class="form-group">
+                    <label for="productStock">Stock Quantity *</label>
+                    <input type="number" id="productStock" name="productStock" required min="0" placeholder="Enter stock quantity">
+                    <span class="error-message" id="stockError"></span>
+                </div>
+                <div class="form-group">
+                    <label for="productDescription">Description</label>
+                    <textarea id="productDescription" name="productDescription" placeholder="Enter product description"></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary">Add Product</button>
+                <button type="button" id="fetchSampleBtn" class="btn btn-secondary">Fetch Sample Data (DummyJSON API)</button>
+            </form>
+        </section>
+
+        <section class="product-list-section">
+            <div class="list-header">
+                <h2>Product Catalog</h2>
+                <div class="controls">
+                    <select id="sortSelect" class="sort-select">
+                        <option value="name-asc">Sort: Name (A-Z)</option>
+                        <option value="name-desc">Sort: Name (Z-A)</option>
+                        <option value="price-asc">Sort: Price (Low-High)</option>
+                        <option value="price-desc">Sort: Price (High-Low)</option>
+                        <option value="category">Sort: Category</option>
+                    </select>
+                    <input type="text" id="searchInput" placeholder="Search products..." class="search-input">
+                </div>
+            </div>
+            <div id="loading" class="loading" style="display: none;">
+                <div class="spinner"></div>
+                <p>Loading products via Fetch API...</p>
+            </div>
+            <div id="errorMessage" class="error-banner" style="display: none;"></div>
+            <table id="productTable" class="product-table">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Name</th>
+                        <th>Category</th>
+                        <th>Price</th>
+                        <th>Stock</th>
+                        <th>Status</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody id="productBody">
+                </tbody>
+            </table>
+            <div id="emptyState" class="empty-state" style="display: none;">
+                <p>No products found. Add a product or fetch sample data.</p>
+            </div>
+        </section>
+    </div>
+    <script src="app.js"></script>
+</body>
+</html>
