@@ -50,7 +50,7 @@ app.get('/api/health', (req, res) => {
 app.post('/api/auth/register', async (req, res) => {
   try {
     const { username, email, password } = req.body;
-    const hashedPassword = await bcrypt.hash(password, 10);
+    const hashedPassword = password; // Model hook hashes it
     const user = await User.create({ username, email, password: hashedPassword });
     const token = jwt.sign({ id: user.id, email: user.email }, JWT_SECRET, { expiresIn: '1h' });
     res.status(201).json({ token, user: { id: user.id, username: user.username, email: user.email } });

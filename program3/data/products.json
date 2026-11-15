@@ -1,0 +1,26 @@
+[
+  {
+    "id": 1,
+    "name": "Smartphone X",
+    "category": "electronics",
+    "price": 599.99,
+    "stock": 25,
+    "description": "Premium smartphone"
+  },
+  {
+    "id": 2,
+    "name": "Running Shoes",
+    "category": "sports",
+    "price": 89.5,
+    "stock": 15,
+    "description": "Professional running shoes"
+  },
+  {
+    "id": 3,
+    "name": "Novel Collection",
+    "category": "books",
+    "price": 39.99,
+    "stock": 50,
+    "description": "Bestseller novel collection"
+  }
+]
